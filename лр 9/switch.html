@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch Statement Example</title>
+</head>
+<body>
+    <h1>Switch Statement Example</h1>
+    <button onclick="getDay()">Get Day</button>
+    <script>
+        function getDay() {
+            let day = new Date().getDay();
+            switch (day) {
+                case 0:
+                    alert("Today is Sunday");
+                    break;
+                case 1:
+                    alert("Today is Monday");
+                    break;
+                case 2:
+                    alert("Today is Tuesday");
+                    break;
+                case 3:
+                    alert("Today is Wednesday");
+                    break;
+                case 4:
+                    alert("Today is Thursday");
+                    break;
+                case 5:
+                    alert("Today is Friday");
+                    break;
+                case 6:
+                    alert("Today is Saturday");
+                    break;
+                default:
+                    alert("Invalid day");
+            }
+        }
+    </script>
+</body>
+</html>

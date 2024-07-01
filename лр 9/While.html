@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>While Loop Example</title>
+</head>
+<body>
+    <h1>While Loop Example</h1>
+    <button onclick="countDown()">Count Down</button>
+    <script>
+        function countDown() {
+            let number = 10;
+            let result = "";
+            while (number > 0) {
+                result += number + " ";
+                number--;
+            }
+            alert(result);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример сетки</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            height: 100px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: repeat(6, minmax(10vw, auto));
+            min-height: calc(100vh - 200px);
+        }
+
+        .header, .footer {
+            grid-column: 1 / -1;
+        }
+
+        .block {
+            background-color: lightgreen;
+            padding: 5vw;
+            box-sizing: border-box;
+            margin: 2vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            min-width: 200px;
+        }
+
+            .block:nth-child(1) {
+                grid-row: 1 / 3;
+            }
+
+            .block:nth-child(2) {
+                grid-row: 1 / 4;
+                grid-column: 2 / 4;
+            }
+
+            .block:nth-child(3) {
+                grid-row: 4 / -2;
+                grid-column: 2 / 4;
+            }
+
+            .block:nth-child(4) {
+                grid-row: 1 / 6;
+            }
+
+            .block:nth-child(5) {
+                grid-row: 3 / 5;
+            }
+
+            .block:nth-child(6) {
+                grid-row: 5 / 7;
+                grid-column: 1 / 2;
+            }
+
+            .block:nth-child(7),
+            .block:nth-child(8) {
+                grid-row: 6 / 7;
+            }
+
+            .block:nth-child(9) {
+                grid-row: 6 / 7;
+            }
+
+        .form-container {
+            grid-row: 1 / 4;
+            grid-column: 2 / 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .form-container form {
+                background-color: lightblue;
+                padding: 20px;
+                border: 2px solid #333;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .form-container label {
+                margin-bottom: 5px;
+            }
+
+            .form-container input[type="text"],
+            .form-container input[type="email"],
+            .form-container input[type="number"],
+            .form-container input[type="submit"] {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            .form-container input[type="checkbox"] {
+                margin-bottom: 15px;
+            }
+
+        .product-card {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            flex: 1;
+            position: relative;
+        }
+
+            .product-image img {
+                width: 100%;
+                height: auto;
+            }
+
+        .thumbnails {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+        }
+
+            .thumbnails img {
+                width: 24%;
+            }
+
+        .product-details {
+            flex: 2;
+            padding: 15px;
+        }
+
+        .product-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .rating-stars {
+            color: gold;
+        }
+
+        .review-count {
+            margin-left: 5px;
+            text-decoration: underline;
+        }
+
+        .product-code {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 14px;
+        }
+
+        .price-section {
+            border: 2px solid #ccc;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+            .price-section p {
+                margin: 5px;
+            }
+
+        .availability {
+            color: green;
+            font-size: 14px;
+        }
+
+        .price-section button {
+            padding: 10px 30px;
+            font-size: 18px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        .order-button {
+            width: 100%;
+        }
+
+        /* Базовый размер текста */
+        body {
+            font-size: 19px;
+            transition: font-size 0.3s ease;
+        }
+
+        h2, h3, .product-title {
+            font-size: 1.5em;
+            transition: font-size 0.3s ease;
+        }
+
+        p, label, button, .product-description, .product-code, .availability {
+            font-size: 1em;
+            transition: font-size 0.3s ease;
+        }
+
+        .footer {
+            font-size: 0.8em;
+            transition: font-size 0.3s ease;
+        }
+
+        @media screen and (max-width: 1280px) {
+            body {
+                font-size: 0.8em;
+            }
+
+            h2, h3, .product-title {
+                font-size: 1.2em;
+            }
+
+            p, label, button, .product-description, .product-code, .availability {
+                font-size: 0.8em;
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            body {
+                font-size: 0.7em;
+            }
+
+            h2, h3, .product-title {
+                font-size: 1em;
+            }
+
+            p, label, button, .product-description, .product-code, .availability {
+                font-size: 0.7em;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .error {
+            border: 2px solid red;
+        }
+
+        .error-tooltip {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        Шапка
+    </header>
+
+    <div class="container">
+        <div class="block">1 блок</div>
+        <div class="form-container">
+            <div class="block-form">
+                <h2>Заявка на продвижение сайта</h2>
+                <form id="promotionForm" action="#" method="post">
+                    <div>
+                        <label for="website">Ваш сайт:</label><br>
+                        <input type="text" id="website" name="website" placeholder="Введите адрес вашего сайта"><br>
+                        <span id="websiteError" class="error-tooltip"></span>
+                    </div>
+                    <div>
+                        <h3>Интересуемые услуги:</h3>
+                        <input type="checkbox" id="service1" name="service1" value="Продвижение сайта">
+                        <label for="service1">Продвижение сайта</label><br>
+                        <input type="checkbox" id="service2" name="service2" value="Контекстная реклама">
+                        <label for="service2">Контекстная реклама</label><br>
+                        <input type="checkbox" id="service3" name="service3" value="Создание сайтов">
+                        <label for="service3">Создание сайтов</label><br>
+                        <input type="checkbox" id="service4" name="service4" value="Веб-аналитика">
+                        <label for="service4">Веб-аналитика</label><br>
+                        <input type="checkbox" id="service5" name="service5" value="Продвижение в социальных сетях">
+                        <label for="service5">Продвижение в социальных сетях</label><br>
+                        <input type="checkbox" id="service6" name="service6" value="Медийная реклама">
+                        <label for="service6">Медийная реклама</label><br>
+                    </div>
+                    <div>
+                        <label for="budget">Бюджет/месяц:</label><br>
+                        <input type="number" id="budget" name="budget" placeholder="рублей" min="0"><br>
+                        <span id="budgetError" class="error-tooltip"></span>
+                    </div>
+                    <div>
+                        <label for="name">Ваше имя:</label><br>
+                        <input type="text" id="name" name="name" placeholder="Введите ваше имя" minlength="2" maxlength="50"><br>
+                        <span id="nameError" class="error-tooltip"></span>
+                    </div>
+                    <div>
+                        <label for="email">Электронная почта:</label><br>
+                        <input type="email" id="email" name="email" placeholder="Введите вашу электронную почту"><br>
+                        <span id="emailError" class="error-tooltip"></span>
+                    </div>
+                    <div>
+                        <label for="phone">Телефон:</label><br>
+                        <input type="text" id="phone" name="phone" placeholder="Введите ваш номер телефона" pattern="^\d{10}$"><br>
+                        <span id="phoneError" class="error-tooltip"></span>
+                    </div>
+                    <div>
+                        <input type="submit" value="Отправить">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="block">4 блок</div>
+        <div class="block">5 блок</div>
+        <div class="block">6 блок</div>
+        <div class="block">7 блок</div>
+        <div class="block">8 блок</div>
+        <div class="block">9 блок</div>
+    </div>
+
+    <footer class="footer">
+        Подвал
+    </footer>
+
+    <script>
+        document.getElementById('promotionForm').addEventListener('submit', function (event) {
+            let isValid = true;
+
+            // Website validation
+            const website = document.getElementById('website');
+            const websiteError = document.getElementById('websiteError');
+            if (website.value.trim() === '') {
+                isValid = false;
+                website.classList.add('error');
+                websiteError.textContent = 'Пожалуйста, введите адрес вашего сайта.';
+            } else {
+                website.classList.remove('error');
+                websiteError.textContent = '';
+            }
+
+            // Budget validation
+            const budget = document.getElementById('budget');
+            const budgetError = document.getElementById('budgetError');
+            if (budget.value.trim() === '' || budget.value < 0) {
+                isValid = false;
+                budget.classList.add('error');
+                budgetError.textContent = 'Пожалуйста, введите корректный бюджет.';
+            } else {
+                budget.classList.remove('error');
+                budgetError.textContent = '';
+            }
+
+            // Name validation
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            if (name.value.trim() === '' || name.value.length < 2 || name.value.length > 50) {
+                isValid = false;
+                name.classList.add('error');
+                nameError.textContent = 'Пожалуйста, введите ваше имя (от 2 до 50 символов).';
+            } else {
+                name.classList.remove('error');
+                nameError.textContent = '';
+            }
+
+            // Email validation
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email.value)) {
+                isValid = false;
+                email.classList.add('error');
+                emailError.textContent = 'Пожалуйста, введите корректный email.';
+            } else {
+                email.classList.remove('error');
+                emailError.textContent = '';
+            }
+
+            // Phone validation
+            const phone = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone.value)) {
+                isValid = false;
+                phone.classList.add('error');
+                phoneError.textContent = 'Пожалуйста, введите корректный номер телефона (10 цифр).';
+            } else {
+                phone.classList.remove('error');
+                phoneError.textContent = '';
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

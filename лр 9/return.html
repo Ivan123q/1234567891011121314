@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Return Statement Example</title>
+</head>
+<body>
+    <h1>Return Statement Example</h1>
+    <button onclick="calculateSquare()">Calculate Square</button>
+    <script>
+        function calculateSquare() {
+            let number = prompt("Enter a number:");
+            let square = squareNumber(number);
+            alert("The square of " + number + " is " + square);
+        }
+
+        function squareNumber(num) {
+            return num * num;
+        }
+    </script>
+</body>
+</html>

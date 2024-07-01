@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Объектная модель браузера</title>
+    <script>
+        function showColorDepth() {
+            // Получение глубины цвета экрана
+            const colorDepth = screen.colorDepth;
+
+            // Открытие нового окна с заданными параметрами
+            const newWindow = window.open("", "ColorDepthWindow", "width=800,height=600,scrollbars=no");
+
+            // Запись информации в новое окно
+            newWindow.document.write("<html><head><title>Color Depth Information</title></head><body>");
+            newWindow.document.write("<h1>Информация о глубине цвета экрана</h1>");
+            newWindow.document.write("<p>Глубина цвета экрана пользователя: " + colorDepth + " бит на пиксель</p>");
+            newWindow.document.write("</body></html>");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="showColorDepth()">Показать глубину цвета экрана</button>
+</body>
+</html>
+
+

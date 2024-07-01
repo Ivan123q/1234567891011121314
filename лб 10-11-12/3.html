@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Работа с объектом Array</title>
+</head>
+<body>
+	<script>
+		function processArray() {
+			// Создание массива из целых чисел
+			const originalArray = [1, 4, 8, 16, 23, 42, 55, 64, 78, 81];
+
+			// Подсчет количества элементов, кратных числу 4
+			let countMultiplesOfFour = 0;
+			for (let i = 0; i < originalArray.length; i++) {
+				if (originalArray[i] % 4 === 0) {
+					countMultiplesOfFour++;
+				}
+			}
+
+			// Переворачивание массива
+			const reversedArray = [...originalArray].reverse();
+
+			// Вывод исходного массива
+			document.write("Исходный массив: " + originalArray.join(", ") + "<br>");
+
+			// Вывод количества элементов, кратных числу 4
+			document.write("Количество элементов, кратных числу 4: " + countMultiplesOfFour + "<br>");
+
+			// Вывод перевернутого массива
+			document.write("Перевернутый массив: " + reversedArray.join(", "));
+		}
+
+		processArray();
+	</script>
+</body>
+</html>

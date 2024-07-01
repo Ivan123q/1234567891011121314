@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Дата в формате секунды-часы</title>
+	<script>
+		function showDate() {
+			const now = new Date();
+			const seconds = now.getSeconds();
+			const minutes = now.getMinutes();
+			const hours = now.getHours();
+
+			alert(`Секунды: ${seconds}, Минуты: ${minutes}, Часы: ${hours}`);
+		}
+	</script>
+</head>
+<body>
+	<button onclick="showDate()">Показать ГОД</button>
+</body>
+</html>

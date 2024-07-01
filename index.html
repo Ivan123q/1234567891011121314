@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница с кнопками</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <div class="dropdown">
+            <button class="dropbtn">Лр 1-3 и 4</button>
+            <div class="dropdown-content">
+                <a href="лр1-3 и 4/Untitled-1.html">лр 1-3</a>
+                <a href="лр1-3 и 4/Untitled-2.html">лр 4</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">лр 5-6-7-8</button>
+            <div class="dropdown-content">
+                <a href="лр 5-6-7-8\адаптивка\index1.html">адаптивка</a>
+                <a href="лр 5-6-7-8/пикселями/index.html">пикселями</a>
+                <a href="лр 5-6-7-8/резиновая/index1.html">резиновая</a>
+                <a href="лр 5-6-7-8/Фиксированная/index.html">фиксированная</a>
+                <a href="лр 5-6-7-8/флексами/index1.html">флексами</a>
+                <a href="лр 5-6-7-8/форма/index.html">форма</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Лр 9</button>
+            <div class="dropdown-content">
+                <a href="лр 9/break.html">проект 1</a>
+                <a href="лр 9/continue.html">проект 2</a>
+                <a href="лр 9/do....while.html">проект 3</a>
+                <a href="лр 9/for.html">проект 4</a>
+                <a href="лр 9/If.html">проект 5</a>
+                <a href="лр 9/index.html">проект 6</a>
+                <a href="лр 9/return.html">проект 7</a>
+                <a href="лр 9/switch.html">проект 8</a>
+                <a href="лр 9/URL.html">проект 9</a>
+                <a href="лр 9/While.html">проект 10</a>
+                <a href="лр 9/в body.html">проект 11</a>
+                <a href="лр 9/в теге.html">проект 12</a>
+                <a href="лр 9/обработчиков событий.html">проект 13</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Лр 10-11-12</button>
+            <div class="dropdown-content">
+                <a href="лб 10-11-12/index.html">проект 1</a>
+                <a href="лб 10-11-12/2.html">проект 2</a>
+                <a href="лб 10-11-12/3.html">проект 3</a>
+                <a href="лб 10-11-12/4.html">проект 4</a>
+                <a href="лб 10-11-12/5.html">проект 5</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Лр 13-14</button>
+            <div class="dropdown-content">
+                <a href="13-14/index.html">проект 1</a>
+                <a href="13-14/2.html">проект 2</a>
+                <a href="13-14/3.html">проект 3</a>
+                <a href="13-14/4.html">проект 4</a>
+                <a href="13-14/5.html">проект 5</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

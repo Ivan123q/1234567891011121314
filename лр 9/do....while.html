@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do..While Loop Example</title>
+</head>
+<body>
+    <h1>Do..While Loop Example</h1>
+    <button onclick="askPassword()">Ask Password</button>
+    <script>
+        function askPassword() {
+            let password;
+            do {
+                password = prompt("Enter the password:");
+            } while (password !== "secret");
+            alert("Access granted");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример сетки</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            height: 100px; /* Фиксированная высота шапки и подвала */
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: repeat(6, minmax(10vw, auto));
+            min-height: calc(100vh - 200px); /* Высота контейнера вычисляется как высота видимого экрана минус высота шапки и подвала */
+        }
+
+        .header, .footer {
+            grid-column: 1 / -1;
+        }
+
+        .block {
+            background-color: lightgreen;
+            padding: 5vw;
+            box-sizing: border-box;
+            margin: 2vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px; /* фиксированная высота */
+            min-width: 200px; /* фиксированная ширина */
+        }
+
+            .block:nth-child(1) {
+                grid-row: 1 / 3;
+            }
+
+            .block:nth-child(2) {
+                grid-row: 1 / 4;
+                grid-column: 2 / 4;
+            }
+
+            .block:nth-child(3) {
+                grid-row: 4 / -2;
+                grid-column: 2 / 4;
+            }
+
+            .block:nth-child(4) {
+                grid-row: 1 / 6;
+            }
+
+            .block:nth-child(5) {
+                grid-row: 3 / 5;
+            }
+
+            .block:nth-child(6) {
+                grid-row: 5 / 7;
+                grid-column: 1 / 2;
+            }
+
+            .block:nth-child(7),
+            .block:nth-child(8) {
+                grid-row: 6 / 7;
+            }
+
+            .block:nth-child(9) {
+                grid-row: 6 / 7;
+            }
+
+        .form-container {
+            grid-row: 1 / 4;
+            grid-column: 2 / 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .form-container form {
+                background-color: lightblue;
+                padding: 20px;
+                border: 2px solid #333;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .form-container label {
+                margin-bottom: 5px; /* Отступ между меткой и полем ввода */
+            }
+
+            .form-container input[type="text"],
+            .form-container input[type="email"],
+            .form-container input[type="Namber"],
+            .form-container input[type="submit"] {
+                margin-bottom: 10px;
+                width: 100%; /* Растянуть поля ввода на всю ширину */
+            }
+
+            .form-container input[type="checkbox"] {
+                margin-bottom: 15px; /* Отступ между чекбоксом и следующим элементом */
+            }
+
+        .product-card {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            flex: 1;
+            position: relative;
+        }
+
+            .product-image img {
+                width: 100%;
+                height: auto;
+            }
+
+        .thumbnails {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+        }
+
+            .thumbnails img {
+                width: 24%;
+            }
+
+        .product-details {
+            flex: 2;
+            padding: 15px;
+        }
+
+        .product-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .rating-stars {
+            color: gold;
+        }
+
+        .review-count {
+            margin-left: 5px;
+            text-decoration: underline;
+        }
+
+        .product-code {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 14px;
+        }
+
+        .price-section {
+            border: 2px solid #ccc;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+            .price-section p {
+                margin: 5px;
+            }
+
+        .availability {
+            color: green;
+            font-size: 14px;
+        }
+
+        .price-section button {
+            padding: 10px 30px;
+            font-size: 18px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+        }
+
+
+        .order-button {
+            width: 100%;
+        }
+
+        /* Базовый размер текста */
+        body {
+            font-size: 19px;
+            transition: font-size 0.3s ease; /* Плавный переход размера текста */
+        }
+
+        /* Для заголовков */
+        h2, h3, .product-title {
+            font-size: 1.5em; /* На 1.5 раза больше базового размера */
+            transition: font-size 0.3s ease; /* Плавный переход размера текста */
+        }
+
+        /* Для обычного текста */
+        p, label, button, .product-description, .product-code, .availability {
+            font-size: 1em; /* Базовый размер */
+            transition: font-size 0.3s ease; /* Плавный переход размера текста */
+        }
+
+        /* Для маленьких элементов, например, подвала */
+        .footer {
+            font-size: 0.8em; /* На 0.8 раза меньше базового размера */
+            transition: font-size 0.3s ease; /* Плавный переход размера текста */
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media screen and (max-width: 1280px) {
+            /* Уменьшаем размер текста на 80% от базового */
+            body {
+                font-size: 0.8em;
+            }
+        }
+
+            /* Уменьшаем размер заголовков на 80% от базового */
+            h2, h3, .product-title {
+                font-size: 1.2em;
+            }
+
+            /* Уменьшаем размер обычного текста на 80% от базового */
+            p, label, button, .product-description, .product-code, .availability {
+                font-size: 0.8em;
+            }
+        
+
+        /* Дополнительный медиа-запрос для еще более маленьких экранов */
+        @media screen and (max-width: 1000px) {
+            /* Уменьшаем размер текста на 70% от базового */
+            body {
+                font-size: 0.7em;
+            }
+        }
+
+            /* Уменьшаем размер заголовков на 70% от базового */
+            h2, h3, .product-title {
+                font-size: 1em;
+            }
+
+            /* Уменьшаем размер обычного текста на 70% от базового */
+            p, label, button, .product-description, .product-code, .availability {
+                font-size: 0.7em;
+            }
+        
+
+
+        /* Медиа-запросы для адаптивности */
+
+
+
+
+        @media screen and (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        Шапка
+    </header>
+
+    <div class="container">
+        <div class="block">1 блок</div>
+        <div class="form-container">
+            <div class="block-form">
+                <h2>Заявка на продвижение сайта</h2>
+                <form action="#" method="post">
+                    <div>
+                        <label for="website">Ваш сайт:</label><br>
+                        <input type="text" id="website" name="website" placeholder="Введите адрес вашего сайта"><br>
+                    </div>
+                    <div>
+                        <h3>Интересуемые услуги:</h3>
+                        <input type="checkbox" id="service1" name="service1" value="Продвижение сайта">
+                        <label for="service1">Продвижение сайта</label><br>
+                        <input type="checkbox" id="service2" name="service2" value="Контекстная реклама">
+                        <label for="service2">Контекстная реклама</label><br>
+                        <input type="checkbox" id="service3" name="service3" value="Создание сайтов">
+                        <label for="service3">Создание сайтов</label><br>
+                        <input type="checkbox" id="service4" name="service4" value="Веб-аналитика">
+                        <label for="service4">Веб-аналитика</label><br>
+                        <input type="checkbox" id="service5" name="service5" value="Продвижение в социальных сетях">
+                        <label for="service5">Продвижение в социальных сетях</label><br>
+                        <input type="checkbox" id="service6" name="service6" value="Медийная реклама">
+                        <label for="service6">Медийная реклама</label><br>
+                    </div>
+                    <div>
+                        <label for="budget">Бюджет/месяц:</label><br>
+                        <input type="text" id="budget" name="budget" placeholder="рублей"><br>
+                    </div>
+                    <div>
+                        <label for="name">Ваше имя:</label><br>
+                        <input type="text" id="name" name="name" placeholder="Введите ваше имя"><br>
+                    </div>
+                    <div>
+                        <label for="email">Электронная почта:</label><br>
+                        <input type="email" id="email" name="email" placeholder="Введите вашу электронную почту"><br>
+                    </div>
+                    <div>
+                        <label for="Namber">Телефон:</label><br>
+                        <input type="Namber" id="Namber" name="Namber" placeholder="Введите ваш номер телефона"><br>
+                    </div>
+                    <div>
+                        <input type="submit" value="Отправить">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="block">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="1.jpg" alt="Картинка товара">
+                    <div class="thumbnails">
+                        <img src="1.jpg" alt="Thumbnail 1">
+                        <img src="2.jpg" alt="Thumbnail 2">
+                        <img src="3.jpg" alt="Thumbnail 3">
+                        <img src="4.jpg" alt="Thumbnail 4">
+                    </div>
+                </div>
+                <div class="product-details">
+                    <div class="product-title">Кожаная сумка дорожная (большая) Muhle RT 4</div>
+                    <div class="product-rating">
+                        <span class="rating-stars">*****</span> <!-- звезды для рейтинга -->
+                        <span class="review-count">0 отзывов</span>
+                    </div>
+                    <div class="product-code">Код: 2549</div>
+                    <div class="product-description">
+                        <p>Доступность: в каталоге</p>
+                        <p>Производитель: Muhle</p>
+                        <p>Категория: дорожная сумка для косметики Muhle</p>
+                        <p>Размер сумки: 195 * 220 мм</p>
+                        <p>Цвет: коричневый</p>
+                    </div>
+                    <hr> <!-- Линия -->
+                    <p>Цена:</p>
+                    <p>5748 грн</p>
+                    <p class="availability" style="font-size: 10px;">В наличии</p>
+                    <button>Купить</button>
+                    <div class="product-card" style="margin-top: 10px;">
+                        <!-- Код из предыдущего ответа -->
+                        <button class="order-button">Заказ в 1 клик</button>
+                    </div>
+                    <hr>
+                    <div style="text-align: center;">
+                        <div style="display: inline-block; margin-top: 5px;">
+                            <img src="ск.png" alt="Закладки" style="width: 20px; height: 20px;"><br>
+                            в закладки
+                        </div>
+                        <div style="display: inline-block; margin-top: 5px;">
+                            <img src="с.png" alt="Сохранить" style="width: 20px; height: 20px;"><br>
+                            сохранить
+                        </div>
+                        <div style="display: inline-block; margin-top: 5px;">
+                            <img src="п.png" alt="Поделиться" style="width: 20px; height: 20px;"><br>
+                            поделиться
+                        </div>
+                    </div>
+
+                    <hr>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="block">4 блок</div>
+        <div class="block">5 блок</div>
+        <div class="block">6 блок</div>
+        <div class="block">7 блок</div>
+        <div class="block">8 блок</div>
+        <div class="block">9 блок</div>
+    </div>
+
+    <footer class="footer">
+        Подвал
+    </footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript via URL Scheme</title>
+    <script>
+        // Создаем новый элемент script
+        var script = document.createElement('script');
+        // Устанавливаем URL для внешнего файла
+        script.src = '12.js.загрузка';
+        // Добавляем элемент script в тег head
+        document.head.appendChild(script);
+    </script>
+</head>
+<body>
+    <button onclick="showAlert()">Click Me</button>
+</body>
+</html>

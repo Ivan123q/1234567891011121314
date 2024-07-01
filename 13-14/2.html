@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Работа с объектом Document</title>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			// Задание 1: Получить массив, содержащий все ссылки, имеющиеся на странице
+			const links = document.querySelectorAll("a");
+
+			// Задание 2: Вывести полученную информацию однократно через 1 секунду после запуска страницы
+			setTimeout(() => {
+				const linksArray = Array.from(links).map(link => link.href);
+				console.log("Ссылки на странице:");
+				console.log(linksArray);
+			}, 1000);
+
+			// Задание 3: Удалить элемент №3 вашей html-страницы при щелчке по нему
+			const thirdElement = document.querySelectorAll("body > *")[2];
+			if (thirdElement) {
+				thirdElement.addEventListener("click", function () {
+					thirdElement.remove();
+				});
+			}
+		});
+	</script>
+</head>
+<body>
+	<p>Иванов Иван Иванович</p>
+	<p><a href="https://www.youtube.com/" target="_blank">Мой любимый сайт</a></p>
+	<img src="https://s1.1zoom.ru/big3/984/Canada_Parks_Lake_Mountains_Forests_Scenery_Rocky_567540_3840x2400.jpg" alt="Пример изображения">
+</body>
+</html>

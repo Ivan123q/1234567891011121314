@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Фамилия и Имя n+5 раз</title>
+</head>
+<body>
+	<script>
+		function displayFullName(times) {
+			let i = 0;
+			const fullName = "Колпачик Иван"; // Замените на вашу фамилию и имя
+			const nPlusFive = times + 8;
+
+			do {
+				document.write(fullName + "<br>");
+				i++;
+			} while (i < nPlusFive);
+		}
+
+		const n = 3; // Здесь задайте значение n
+		displayFullName(n);
+	</script>
+</body>
+</html>

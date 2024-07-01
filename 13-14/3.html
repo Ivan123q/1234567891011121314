@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Работа с объектом Style</title>
+	<style>
+		/* Начальные стили для элементов */
+		body {
+			background-color: white;
+			font-family: sans-serif;
+			font-size: 16px;
+			color: black;
+		}
+
+		img {
+			border: none;
+		}
+	</style>
+	<script>
+		function changeStyle() {
+			// Изменение фона документа
+			document.body.style.backgroundColor = "yellow";
+
+			// Изменение стиля текста
+			document.body.style.fontFamily = "Arial";
+			document.body.style.fontSize = "12px";
+			document.body.style.color = "blue";
+
+			// Добавление рамки к изображениям
+			const images = document.querySelectorAll("img");
+			images.forEach(img => {
+				img.style.border = "1px solid green";
+			});
+		}
+	</script>
+</head>
+<body>
+	<p>Иванов Иван Иванович</p>
+	<p><a href="https://www.youtube.com/" target="_blank">Мой любимый сайт</a></p>
+	<img src="https://s1.1zoom.ru/big3/984/Canada_Parks_Lake_Mountains_Forests_Scenery_Rocky_567540_3840x2400.jpg" alt="Пример изображения">
+	<br>
+	<button onclick="changeStyle()">Изменить стиль</button>
+</body>
+</html>

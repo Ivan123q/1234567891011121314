@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Теги HTML</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body, html {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        article {
+            color: #d4a017;
+            font-size: 3em;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .myinitialcaps {
+            font-size: 3em;
+            font-family: 'Roboto', sans-serif;
+            color: #825f0b;
+        }
+
+        p, a {
+            color: #c73c50;
+            font-size: 1.2em;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        b, i, u, s {
+            display: block;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        b {
+            font-weight: bold;
+            color: #2e2e2e;
+        }
+
+        i {
+            font-style: italic;
+            color: #5a5a5a;
+        }
+
+        u {
+            text-decoration: underline;
+            color: #2e2e2e;
+        }
+
+        s {
+            text-decoration: line-through;
+            color: #a0a0a0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            cursor: col-resize;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.75em;
+        }
+
+        h4 {
+            font-size: 1.5em;
+        }
+
+        h5 {
+            font-size: 1.25em;
+        }
+
+        h6 {
+            font-size: 1em;
+        }
+
+        ul, ol {
+            margin: 20px auto;
+            padding: 0;
+            width: 50%;
+            list-style-position: inside;
+        }
+
+        li {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+
+        a {
+            color: #ff4500;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border: 5px groove #ff4f00;
+        }
+
+        video, audio {
+            display: block;
+            margin: 20px auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <article><span class="myinitialcaps">К</span>ак я знаю теги HTML</article>
+        <p></p>
+        <p><a href="#bottom">Якорная ссылка к картинке&#9875;</a></p>
+        <b>Текст с жирным начертанием с тегом &lt;b&gt;</b>
+        <p></p>
+        <i>Курсивный текст</i>
+        <p></p>
+        <u>Подчеркнутый текст</u>
+        <p></p>
+        <s>Перечеркнутый текст</s>
+        <p></p>
+        <p>Один абзац с тегом &lt;p&gt;</p>
+        <p>Другой абзац с тегом &lt;p&gt;</p>
+        <h2>Строка поменьше с тегом &lt;h2&gt;</h2>
+        <h3>Строка еще поменьше с тегом &lt;h3&gt;</h3>
+        <h4>Строка еще еще поменьше с тегом &lt;h4&gt;</h4>
+        <h5>Строка еще еще еще поменьше с тегом &lt;h5&gt;</h5>
+        <h6>Строка еще еще еще еще поменьше с тегом &lt;h6&gt;</h6>
+        <h2>Маркированный список</h2>
+        <ul>
+            <li>точка</li>
+            <li>запятая</li>
+            <li>восклицательный знак</li>
+            <li>вопросительный знак</li>
+        </ul>
+        <h2>Список</h2>
+        <ol>
+            <li style="color:rgb(255, 0, 0);">список 1</li>
+            <li style="color:rgb(0, 0, 255);">список 2</li>
+            <li style="color:rgb(0, 255, 0);">список 3</li>
+        </ol>
+        <a href="https://ru.wikipedia.org/wiki/%D0%93%D0%B8%D0%BF%D0%B5%D1%80%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B0">Текст гиперссылки</a>
+        <p></p>
+        <img id="bottom" src="город.png" width="500" height="500">
+        <p></p>
+        <video controls width="250">
+            <source src="чипи.mp4">
+        </video>
+        <p></p>
+        <audio controls src="ЛЕПС.mp3"></audio>
+        <p></p>
+        <a href="Untitled-2.html">Переход на другую страницу</a>
+    </div>
+</body>
+</html>
